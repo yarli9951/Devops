@@ -4,13 +4,15 @@ pipeline {
 
     stages {
 
-     stage('Git-clone'){
+     stage('Git-clone')
+     {
        steps {
          script {
 
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yarli9951/Devops.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yarli9951/Devops.git']]])
      }
      }
+   }
      stage('Build')
      {
 
@@ -26,7 +28,5 @@ pipeline {
      }
 
 
-
-    }
 
     }
