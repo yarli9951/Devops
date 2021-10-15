@@ -6,8 +6,10 @@ pipeline {
 
      stage('Git-clone'){
        steps {
+         script {
 
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yarli9951/Devops.git']]])
+     }
      }
      stage('Build')
      {
