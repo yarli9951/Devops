@@ -20,7 +20,7 @@ pipeline {
          script{
 
            sh 'echo "This is a Maven stage"'
-           sh 'sh demo/while.sh'
+           sh 'cd /var/lib/jenkins/workspace/Maven-build/Devops; sh demo/while.sh'
 
          }
 
