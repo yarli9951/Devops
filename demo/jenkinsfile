@@ -1,6 +1,11 @@
 pipeline {
   //Agent mean to specify where exactly this job need to run
     agent any
+    tools {
+
+       maven 'maven'
+    }
+
 
     stages {
 
@@ -19,8 +24,8 @@ pipeline {
        steps {
          script{
 
-           sh 'mvn clean install'
-           sh 'cd /var/lib/jenkins/workspace/Maven-build/demo; sh while.sh'
+           sh 'cd /var/lib/jenkins/workspace/Maven-build/demo;mvn clean install'
+           //sh 'cd /var/lib/jenkins/workspace/Maven-build/demo; sh while.sh'
 
          }
 
