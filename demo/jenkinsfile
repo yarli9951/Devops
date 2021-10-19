@@ -1,0 +1,33 @@
+pipeline {
+  //Agent mean to specify where exactly this job need to run
+    agent any
+
+    stages {
+
+     stage('Git-clone')
+     {
+       steps {
+         script {
+
+       checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yarli9951/Devops.git']]])
+     }
+     }
+   }
+     stage('Build')
+     {
+
+       steps {
+         script{
+
+           sh 'mvn clean install'
+           sh 'cd /var/lib/jenkins/workspace/Maven-build/demo; sh while.sh'
+
+         }
+
+       }
+     }
+     }
+
+
+
+    }
